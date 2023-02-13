@@ -28,6 +28,7 @@ const [belanja, setBelanja] = useState([]);
     };
 
     axios.post("http://localhost:3006/belanja", data).then(() => ambilData());
+    console.log("AMBIL", ambilData);
 
     // e.target.nama.value = "";
     // e.target.harga.value = "";
@@ -50,10 +51,10 @@ const [belanja, setBelanja] = useState([]);
       .put("http://localhost:3006/belanja/" + id, data)
       // put ganti totalitas
       .then(() => ambilData());
-    setisEdit(null);
-  };
-
-//   console.log("isEdit", isEdit);
+      setisEdit(null);
+    };
+    // console.log("isEdit", isEdit);
+    
 
   // buat algoritma isEdit
 
@@ -128,28 +129,24 @@ const [belanja, setBelanja] = useState([]);
 // jika a maka b
 // jika tidak maka c
 
-// TUGAS:
-// coba ulangi dan pahami urut berdasarkan algoritma buatan sendiri 3x
-
 // ALGORITM :
-// Buat state makanan diisi initialvalue array kosong sebagai wadah di frontend
-// Buat function ambilData yang di dalamnya terdapat axios.get dan then. Get dari alamat backendnya ("http://localhost:3006/belanja") dan then (.then) membawa data dari res / objecknya
-// Untuk mengakses data dari res / objeck tersebut menggunakan keynya (yaitu : .data), karena yang dibutuhkan hanya data saja, bukan res / objeck secara utuh
-// Simpan data tersebut  di dlm state dg setState
+// Buat state belanja diisi initialvalue array kosong sebagai wadah di frontend
+// Buat function ambilData yang di dalamnya terdapat axios.get.then Get dari alamat backendnya ("http://localhost:3006/belanja").then digunakan untuk menentukan tindakan apa yang akan diambil setelah berhasil menerima respons dari server
+// kemudian tindakan yang di ambil ketika berhasil menerima respon dari server yaitu mengambil lalu menyimpan data dalam setState dalam kasus ini yang di butuhkan hanya datanya saja jadi res.data bukan bjeck secara utuh
 // Buat useEffect snippet dan masukkan variabel ambilData di dalamnya
 // Buat  form di dalamnya :
 //    >> input name=nama,
 //    >> input name=harga dengan type number,
-//    >> input name=gambar dengan type file,
 //    >> button save type submit
 
-// Buat function onSave yang isinya :
-//      onSave = (e) => {
+// Buat function Save yang isinya :
+//      Save = (e) => {
 //        e.preventDefault();
+// biar tidak mereload ulang
 //        const nama = e.target.nama.value;
 //        const harga = e.target.harga.value;
-//        const gambar = e.target.gambar.value;
-// kirim data yang berisi nama,harga, dan gambar ke backend dengan axios.post , lalu (then) get kembali dg ambilData (function diatasnya)
+
+// kirim data yang berisi nama,harga  ke backend dengan axios.post , lalu (then) get kembali dg ambilData (function diatasnya)
 // Buat function del yang isinya axios.delete ,lalu (then) get kembali dg ambilData (variabel diatasnya)
 // Delete berdasarkan id
 
