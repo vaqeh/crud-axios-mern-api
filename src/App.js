@@ -4,7 +4,6 @@ import CobaAxios from './axios';
 function App() {
   return (
     <CobaAxios>
-
     </CobaAxios>
   );
 }
